@@ -1,0 +1,66 @@
+/* ===================================
+   BASE STYLES & RESET
+   =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    transition: var(--transition);
+    overflow-x: hidden;
+}
+
+body.dark {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Startzustand fur GSAP-Animationen.
+   Elemente sind unsichtbar bis GSAP sie einblendet.
+   Ohne das wuerden sie kurz aufblitzen bevor die Animation startet. */
+.fade-in {
+    opacity: 0;
+}
+
+/* Fallback falls GSAP nicht laedt */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: var(--accent-light);
+    color: white;
+}
+
+body.dark ::selection {
+    background-color: var(--accent-dark);
+    color: white;
+}
